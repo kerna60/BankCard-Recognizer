@@ -29,3 +29,10 @@ def single_recognition(img_array, img_shape: tuple, model_path):
         y_pred_text += DECODE_DICT[num]
 
     return y_pred_text
+
+def batch_recognition(imgs_list, img_shape, model_path):
+    """ 新增批量预测方法 """
+    # 保持原有预处理逻辑[doc_1]
+    processed_imgs = [preprocess(img) for img in imgs_list]
+    # 扩展为支持batch维度输入
+    return model.predict(np.array(processed_imgs))

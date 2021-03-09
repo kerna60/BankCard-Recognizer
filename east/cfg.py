@@ -71,3 +71,10 @@ side_vertex_pixel_threshold = 0.9
 trunc_threshold = 0.1
 # for predict
 pixel_threshold = 0.9
+
+# 在cfg.py末尾添加
+batch_predict_params = {
+    "input_shape": (256, 256, 3),  # 与训练尺寸一致[doc_1]
+    "pixel_threshold": 0.8,        # 提高检测阈值
+    "max_batch_size": 8           # 新增批量处理参数
+}
